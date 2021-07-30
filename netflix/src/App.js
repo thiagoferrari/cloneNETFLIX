@@ -23,9 +23,8 @@ export default () => {
       let randomChosen = Math.floor(Math.random() * (originals[0].items.results.length - 1))
       let chosen = originals[0].items.results[randomChosen]
       let chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv')
-      
-      console.log(chosenInfo);
-      /*  */
+
+      setFeaturedData(chosenInfo)
     }
 
     loadAll()
@@ -39,7 +38,7 @@ export default () => {
       As LISTAS
       Rodapé */}
       {featuredData &&
-        <FeaturedMovie item={featuredData}></FeaturedMovie>
+        <FeaturedMovie item={featuredData} />
       }
 
       <section className='lists'>
