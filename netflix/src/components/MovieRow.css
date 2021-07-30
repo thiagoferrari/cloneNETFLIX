@@ -23,10 +23,13 @@
 
 .movieRow--item img {
 	width: 100%;
+	/*diminuir a em 90% o tamanho da img*/
 	transform: scale(0.9);
+	/*animar img em qualquer alteração:*/
 	transition: all ease 0.2s;
 }
 
 .movieRow--item img:hover {
+	/*aumentar a escala para 100% da img ao mover mouse*/
 	transform: scale(1)
 }
