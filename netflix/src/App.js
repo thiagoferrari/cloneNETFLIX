@@ -3,11 +3,13 @@ import MovieRow from './components/MovieRow'
 import Tmdb from './Tmdb'
 import './App.css'
 import FeaturedMovie from './components/FeaturedMovie'
+import Header from './components/Header'
 
 export default () => {
 
   const [movieList, setMovieList] = useState([])
   const [featuredData, setFeaturedData] = useState([])
+  const [blkHeader, setBlkHeader] = useState(false)
 
   useEffect(() => {
     const loadAll = async () => {
@@ -30,13 +32,29 @@ export default () => {
     loadAll()
   }, [])
 
+  useEffect(() => {
+    const scrollListener = () => {
+      if (window.scrollY > 10) {
+        setBlkHeader(true)
+      } else {
+        setBlkHeader(false)
+      }
+    }
+
+    window.addEventListener('scroll', scrollListener)
+
+    /* ?? */
+    return () => {
+      window.removeEventListener('scroll', scrollListener)
+    }
+  }, [])
+
 
   return (
     <div className='page'>
-      {/* Header
-      Destaque
-      As LISTAS
-      Rodapé */}
+
+      <Header blkHeader={blkHeader} />
+
       {featuredData &&
         <FeaturedMovie item={featuredData} />
       }
@@ -46,6 +64,18 @@ export default () => {
           <MovieRow key={key} title={item.title} items={item.items} />
         ))}
       </section>
+
+      <footer>
+        <div>
+          Feito com <span hole='img'>☕</span> por <a href="https://github.com/thiagoferrari">Thiago Ferrari</a>
+        </div>
+        <div>
+          Direitos Resevados à Netflix™
+        </div>
+        <div>
+          API utilizada: <a href="https://www.themoviedb.org/documentation/api">themoviedb.org</a>
+        </div>
+      </footer>
     </div>
   )
 }

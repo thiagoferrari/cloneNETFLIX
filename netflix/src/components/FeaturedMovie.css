@@ -13,5 +13,76 @@
 	/* vamos herdar do pai featured estas medidas de width e height*/
 	width: inherit;
 	height: inherit;
-	background: linear-gradient(to right, #111 10%, transparent 70%)
+	background: linear-gradient(to right, #111 10%, transparent 70%);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-top: 70px;
+	padding-bottom: 150px;
+	padding-left: 30px;
+}
+
+.featured--name {
+	font-size: 60px;
+	font-weight: bold;
+}
+
+.featured--info {
+	font-size: 18px;
+	font-weight: bold;
+	margin-top: 15px;
+}
+
+.featured--points, .featured--year, .featured--seasons {
+	display: inline-block;
+	margin-right: 15px;
+}
+
+.featured--points {
+	color: aquamarine;
+	/* inline: deixar a tag um do lado da outra
+	block: permitir a tag ter controle de largura, altura, etc.  */
+}
+
+.featured--description {
+	margin-top: 15px;
+	font-size: 20px;
+	color: darkgrey;
+	max-width: 40%;
+}
+
+.featured--buttons {
+	margin-top: 15px;
+}
+
+.featured--watch, .featured--myList {
+	display: inline-block;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 12px 25px;
+	border-radius: 5px;
+	text-decoration: none;
+	margin-right: 10px;
+	opacity: 1;
+	transition: all ease 0.2s;
+}
+
+.featured--watch:hover, .featured--myList:hover {
+	opacity: 0.7;
+}
+
+.featured--watch {
+	background-color: azure;
+	color: black;
+}
+
+.featured--myList {
+	background-color: dimgray;
+	color: azure;
+}
+
+.featured--genres {
+	margin-top: 15px;
+	font-size: 18px;
+	color: darkgrey;
 }
